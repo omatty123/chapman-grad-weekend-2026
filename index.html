@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Field Brief — Chapman Weekend</title>
+<title>Chapman Grad Weekend — Jules</title>
 <style>
   :root {
     --bg: #0f0f0f;
@@ -361,6 +361,34 @@
   .event:last-child { border-bottom: none; }
   .event-when { font-size: 0.67rem; color: var(--muted); line-height: 1.4; }
 
+  /* PHOTO GALLERY */
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 3px;
+  }
+
+  .gallery-grid a {
+    display: block;
+    aspect-ratio: 1;
+    overflow: hidden;
+  }
+
+  .gallery-grid img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+    filter: grayscale(10%);
+    transition: filter 0.15s, transform 0.15s;
+  }
+
+  .gallery-grid a:hover img {
+    filter: grayscale(0%);
+    transform: scale(1.04);
+  }
+
   footer {
     padding: 1rem 1.5rem 2rem;
     font-size: 0.62rem;
@@ -379,8 +407,8 @@
 <body>
 
 <header>
-  <div class="header-top">Field Brief &nbsp;|&nbsp; Chapman Commencement &nbsp;|&nbsp; May 22–24, 2026</div>
-  <h1>Operation: Jules &mdash; Dodge College of Film &amp; Media Arts</h1>
+  <div class="header-top">Field Brief &nbsp;|&nbsp; May 22–24, 2026</div>
+  <h1>Chapman Grad Weekend &mdash; Jules</h1>
 </header>
 
 <div class="page-wrap">
@@ -627,7 +655,25 @@
 
     </section>
 
-    <!-- QUICK LINKS -->
+    <!-- PHOTO ARCHIVE -->
+  <section>
+    <div class="section-label">The File</div>
+    <h2>Background</h2>
+    <div class="gallery-grid">
+      <a href="p01.jpg" target="_blank"><img src="p01.jpg" alt=""></a>
+      <a href="p02.jpg" target="_blank"><img src="p02.jpg" alt=""></a>
+      <a href="p03.jpg" target="_blank"><img src="p03.jpg" alt=""></a>
+      <a href="p04.jpg" target="_blank"><img src="p04.jpg" alt=""></a>
+      <a href="p05.jpg" target="_blank"><img src="p05.jpg" alt=""></a>
+      <a href="p06.jpg" target="_blank"><img src="p06.jpg" alt=""></a>
+      <a href="p07.jpg" target="_blank"><img src="p07.jpg" alt=""></a>
+      <a href="p08.jpg" target="_blank"><img src="p08.jpg" alt=""></a>
+      <a href="p09.jpg" target="_blank"><img src="p09.jpg" alt=""></a>
+      <a href="p10.jpg" target="_blank"><img src="p10.jpg" alt=""></a>
+    </div>
+  </section>
+
+  <!-- QUICK LINKS -->
     <section>
       <div class="section-label">Reference</div>
       <h2>Quick Links</h2>
