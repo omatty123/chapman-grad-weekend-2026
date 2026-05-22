@@ -14,8 +14,6 @@
     --muted: #767676;
     --accent: #c8922a;
     --accent-dim: #8a6118;
-    --green: #4a9e6b;
-    --red: #c0392b;
     --link: #c8922a;
   }
 
@@ -32,82 +30,94 @@
   a { color: var(--link); text-decoration: none; }
   a:hover { text-decoration: underline; }
 
-  /* HEADER */
+  /* HEADER — full width, no photo */
   header {
     background: #000;
     border-bottom: 2px solid var(--accent);
-    padding: 1.4rem 1.5rem 1.2rem;
-    display: grid;
-    grid-template-columns: 1fr auto;
-    gap: 1rem;
-    align-items: center;
+    padding: 1.2rem 1.5rem 1rem;
   }
 
   .header-top {
-    font-size: 0.6rem;
+    font-size: 0.58rem;
     letter-spacing: 0.2em;
     text-transform: uppercase;
     color: var(--muted);
-    margin-bottom: 0.4rem;
-  }
-
-  header h1 {
-    font-size: 1.3rem;
-    font-weight: 600;
-    letter-spacing: 0.03em;
-    color: #fff;
-  }
-
-  .subject-photo {
-    position: relative;
-    flex-shrink: 0;
-  }
-
-  .subject-photo img {
-    display: block;
-    width: 160px;
-    height: 200px;
-    object-fit: cover;
-    object-position: center top;
-    border: 1px solid var(--accent-dim);
-    filter: grayscale(20%);
-  }
-
-  .subject-label {
-    font-size: 0.52rem;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: var(--muted);
-    text-align: center;
-    margin-top: 0.25rem;
-  }
-
-  /* LAYOUT */
-  .container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 1.5rem 1.5rem 4rem;
-  }
-
-  /* SECTION */
-  section { margin-bottom: 2rem; }
-
-  .section-label {
-    font-size: 0.6rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--accent);
     margin-bottom: 0.3rem;
   }
 
-  section h2 {
-    font-size: 0.85rem;
+  header h1 {
+    font-size: 1.25rem;
     font-weight: 600;
-    letter-spacing: 0.06em;
+    color: #fff;
+  }
+
+  /* PAGE LAYOUT — sidebar + scrolling content */
+  .page-wrap {
+    display: flex;
+    align-items: flex-start;
+  }
+
+  /* STICKY SIDEBAR */
+  .sidebar {
+    width: 240px;
+    flex-shrink: 0;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow: hidden;
+    border-right: 1px solid var(--border);
+    background: #000;
+  }
+
+  .sidebar img {
+    display: block;
+    width: 100%;
+    height: calc(100vh - 28px);
+    object-fit: cover;
+    object-position: center top;
+    filter: grayscale(15%);
+  }
+
+  .sidebar-label {
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.52rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+    background: #000;
+    border-top: 1px solid var(--border);
+  }
+
+  /* MAIN CONTENT */
+  .content { flex: 1; min-width: 0; }
+
+  .container {
+    max-width: 720px;
+    padding: 1.5rem 1.5rem 4rem;
+  }
+
+  /* SECTIONS */
+  section { margin-bottom: 2rem; }
+
+  .section-label {
+    font-size: 0.58rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.25rem;
+  }
+
+  section h2 {
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.07em;
     text-transform: uppercase;
     border-bottom: 1px solid var(--border);
-    padding-bottom: 0.35rem;
-    margin-bottom: 0.9rem;
+    padding-bottom: 0.3rem;
+    margin-bottom: 0.85rem;
     color: #fff;
   }
 
@@ -116,8 +126,8 @@
     background: var(--surface);
     border: 1px solid var(--accent-dim);
     border-left: 3px solid var(--accent);
-    padding: 1rem 1.2rem;
-    margin-bottom: 1.5rem;
+    padding: 0.9rem 1.1rem;
+    margin-bottom: 1.4rem;
     display: grid;
     grid-template-columns: 1fr auto;
     gap: 0.5rem;
@@ -125,233 +135,198 @@
   }
 
   .homebase-label {
-    font-size: 0.58rem;
+    font-size: 0.56rem;
     letter-spacing: 0.2em;
     text-transform: uppercase;
     color: var(--accent);
-    margin-bottom: 0.2rem;
+    margin-bottom: 0.15rem;
   }
 
   .homebase-address {
-    font-size: 1rem;
+    font-size: 0.95rem;
     font-weight: 600;
     color: #fff;
-    margin-bottom: 0.2rem;
+    margin-bottom: 0.15rem;
   }
 
-  .homebase-meta {
-    font-size: 0.78rem;
-    color: var(--muted);
-  }
+  .homebase-meta { font-size: 0.75rem; color: var(--muted); }
 
   .dir-btn {
     display: inline-block;
     background: var(--accent);
     color: #000;
-    font-size: 0.68rem;
+    font-size: 0.65rem;
     font-weight: 700;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    padding: 0.5rem 0.9rem;
+    padding: 0.45rem 0.85rem;
     white-space: nowrap;
-    text-decoration: none;
   }
 
   .dir-btn:hover { background: #e0a030; text-decoration: none; }
 
-  /* ALERT */
-  .alert {
-    background: #1e1600;
-    border: 1px solid var(--accent-dim);
-    border-left: 3px solid var(--accent);
-    padding: 0.9rem 1.1rem;
-    margin-bottom: 1.5rem;
-    font-size: 0.85rem;
-  }
-
-  .alert strong { color: var(--accent); }
-
   /* DATA ROWS */
-  .row-list { list-style: none; padding: 0; }
+  .row-list { list-style: none; }
 
   .row-list li {
     display: flex;
     gap: 1rem;
-    padding: 0.45rem 0;
+    padding: 0.4rem 0;
     border-bottom: 1px solid var(--border);
-    font-size: 0.84rem;
+    font-size: 0.83rem;
     align-items: baseline;
   }
 
   .row-list li:last-child { border-bottom: none; }
 
   .rk {
-    font-size: 0.68rem;
+    font-size: 0.65rem;
     letter-spacing: 0.06em;
     text-transform: uppercase;
     color: var(--muted);
-    min-width: 100px;
+    min-width: 95px;
     flex-shrink: 0;
-    padding-top: 0.1rem;
   }
 
-  /* CEREMONY BLOCK */
+  /* CEREMONY */
   .ceremony-card {
     background: var(--surface);
     border: 1px solid var(--border);
-    border-left: 3px solid #6b2d6b;
-    padding: 1rem 1.2rem;
+    border-left: 3px solid #7a3a7a;
+    padding: 0.9rem 1.1rem;
   }
 
   .c-header {
     display: flex;
     justify-content: space-between;
     align-items: baseline;
-    margin-bottom: 0.7rem;
+    margin-bottom: 0.6rem;
+    gap: 1rem;
   }
 
-  .c-title {
-    font-size: 1rem;
-    font-weight: 600;
-    color: #fff;
-  }
+  .c-title { font-size: 0.95rem; font-weight: 600; color: #fff; }
 
   .c-time-badge {
-    font-size: 0.68rem;
-    letter-spacing: 0.08em;
+    font-size: 0.65rem;
+    letter-spacing: 0.07em;
     text-transform: uppercase;
     color: #c078c0;
     font-weight: 600;
+    white-space: nowrap;
   }
 
-  .c-rows { list-style: none; padding: 0; }
+  .c-rows { list-style: none; }
 
   .c-rows li {
     display: flex;
-    gap: 1rem;
-    padding: 0.35rem 0;
+    gap: 0.8rem;
+    padding: 0.32rem 0;
     border-bottom: 1px solid var(--border);
-    font-size: 0.83rem;
+    font-size: 0.81rem;
   }
 
   .c-rows li:last-child { border-bottom: none; }
 
   .ck {
     color: var(--muted);
-    min-width: 80px;
-    font-size: 0.72rem;
+    min-width: 78px;
+    font-size: 0.68rem;
     letter-spacing: 0.04em;
     text-transform: uppercase;
     flex-shrink: 0;
-    padding-top: 0.1rem;
   }
 
   /* MAP */
   .map-embed {
     border: 1px solid var(--border);
     width: 100%;
-    height: 540px;
+    height: 480px;
     display: block;
-    background: var(--surface);
   }
 
   .map-key {
     background: var(--surface);
     border: 1px solid var(--border);
     border-top: none;
-    padding: 0.7rem 1rem;
+    padding: 0.6rem 0.9rem;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 0.3rem 0.8rem;
-    font-size: 0.75rem;
+    gap: 0.25rem 0.6rem;
+    font-size: 0.72rem;
     color: var(--muted);
   }
 
-  @media (max-width: 600px) {
-    .map-key { grid-template-columns: 1fr 1fr; }
+  /* PARKING */
+  .park-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+    margin-bottom: 0.6rem;
   }
 
-  .map-key span { color: var(--text); }
+  .park-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 0.7rem 0.85rem;
+  }
 
-  /* RESTAURANTS — 3-column grid */
-  .resto-grid-3 {
+  .park-name { font-size: 0.8rem; font-weight: 700; color: #fff; margin-bottom: 0.1rem; }
+  .park-addr { font-size: 0.7rem; color: var(--muted); margin-bottom: 0.25rem; line-height: 1.35; }
+  .park-note { font-size: 0.7rem; color: #888; margin-bottom: 0.35rem; line-height: 1.35; }
+  .park-card a { font-size: 0.65rem; }
+
+  /* RESTAURANTS — one unified grid, zone labels span all cols */
+  .resto-grid-all {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 0.5rem;
   }
 
-  @media (max-width: 640px) {
-    .resto-grid-3 { grid-template-columns: 1fr 1fr; }
+  .zone-divider {
+    grid-column: 1 / -1;
+    font-size: 0.6rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 0.22rem;
+    margin-top: 0.4rem;
   }
 
-  @media (max-width: 420px) {
-    .resto-grid-3 { grid-template-columns: 1fr; }
-  }
+  .zone-divider:first-child { margin-top: 0; }
 
   .resto {
     background: var(--surface);
     border: 1px solid var(--border);
-    padding: 0.75rem 0.8rem;
+    padding: 0.72rem 0.8rem;
   }
 
-  .resto-name {
-    font-size: 0.82rem;
-    font-weight: 700;
-    color: #fff;
-    margin-bottom: 0.1rem;
-    line-height: 1.2;
-  }
+  .resto-name { font-size: 0.82rem; font-weight: 700; color: #fff; margin-bottom: 0.08rem; }
 
   .resto-type {
-    font-size: 0.62rem;
+    font-size: 0.6rem;
     letter-spacing: 0.06em;
     text-transform: uppercase;
     color: var(--accent);
-    margin-bottom: 0.3rem;
+    margin-bottom: 0.28rem;
   }
 
-  .resto p {
-    font-size: 0.75rem;
-    color: #888;
-    line-height: 1.35;
-    margin-bottom: 0.5rem;
-  }
+  .resto p { font-size: 0.74rem; color: #888; line-height: 1.35; margin-bottom: 0.45rem; }
 
-  .resto-links {
-    display: flex;
-    flex-direction: column;
-    gap: 0.2rem;
-  }
-
-  .resto-links a {
-    font-size: 0.62rem;
-    letter-spacing: 0.04em;
-    color: var(--link);
-  }
-
-  .zone-label {
-    font-size: 0.62rem;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--muted);
-    margin: 1.2rem 0 0.5rem;
-    border-bottom: 1px solid var(--border);
-    padding-bottom: 0.25rem;
-  }
+  .resto-links { display: flex; flex-direction: column; gap: 0.18rem; }
+  .resto-links a { font-size: 0.62rem; color: var(--link); }
 
   /* FLIGHTS */
-  .flight-day {
-    margin-bottom: 0.8rem;
-  }
+  .flight-day { margin-bottom: 0.75rem; }
 
   .flight-day-label {
-    font-size: 0.6rem;
+    font-size: 0.58rem;
     letter-spacing: 0.16em;
     text-transform: uppercase;
     color: var(--accent);
     border-bottom: 1px solid var(--border);
-    padding-bottom: 0.2rem;
-    margin-bottom: 0.5rem;
+    padding-bottom: 0.18rem;
+    margin-bottom: 0.45rem;
   }
 
   .flight-legs {
@@ -360,437 +335,319 @@
     gap: 0.5rem;
   }
 
-  @media (max-width: 520px) { .flight-legs { grid-template-columns: 1fr; } }
-
   .flight-leg {
     background: var(--surface);
     border: 1px solid var(--border);
-    padding: 0.7rem 0.9rem;
+    padding: 0.65rem 0.85rem;
   }
 
-  .flight-num {
-    font-size: 0.78rem;
-    font-weight: 700;
-    color: #fff;
-    margin-bottom: 0.15rem;
-  }
-
-  .flight-route {
-    font-size: 1rem;
-    font-weight: 600;
-    color: var(--accent);
-    letter-spacing: 0.04em;
-    margin-bottom: 0.2rem;
-  }
-
-  .flight-times {
-    font-size: 0.75rem;
-    color: var(--text);
-    margin-bottom: 0.15rem;
-  }
-
-  .flight-meta {
-    font-size: 0.68rem;
-    color: var(--muted);
-    line-height: 1.4;
-  }
-
-  .flight-meta a { font-size: 0.65rem; }
-
-  .layover-note {
-    font-size: 0.7rem;
-    color: var(--muted);
-    padding: 0.2rem 0.4rem;
-    background: var(--surface2);
-    border-left: 2px solid var(--border);
-    margin: 0.3rem 0;
-    grid-column: 1 / -1;
-  }
-
-  /* PARKING */
-  .park-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 0.5rem;
-    margin-bottom: 0.7rem;
-  }
-
-  @media (max-width: 600px) { .park-grid { grid-template-columns: 1fr; } }
-
-  .park-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    padding: 0.75rem 0.9rem;
-  }
-
-  .park-name {
-    font-size: 0.82rem;
-    font-weight: 700;
-    color: #fff;
-    margin-bottom: 0.15rem;
-  }
-
-  .park-addr {
-    font-size: 0.72rem;
-    color: var(--muted);
-    margin-bottom: 0.3rem;
-  }
-
-  .park-note {
-    font-size: 0.72rem;
-    color: #9a9690;
-    margin-bottom: 0.4rem;
-    line-height: 1.35;
-  }
-
-  .park-card a {
-    font-size: 0.65rem;
-    letter-spacing: 0.04em;
-  }
+  .flight-num { font-size: 0.76rem; font-weight: 700; color: #fff; margin-bottom: 0.1rem; }
+  .flight-route { font-size: 0.95rem; font-weight: 600; color: var(--accent); margin-bottom: 0.15rem; }
+  .flight-times { font-size: 0.74rem; color: var(--text); margin-bottom: 0.12rem; }
+  .flight-meta { font-size: 0.66rem; color: var(--muted); line-height: 1.4; }
+  .flight-meta a { font-size: 0.64rem; }
 
   /* EVENTS */
-  .event-list { display: flex; flex-direction: column; gap: 0; }
-
   .event {
     display: grid;
     grid-template-columns: 72px 1fr;
     gap: 0.6rem;
-    padding: 0.5rem 0;
+    padding: 0.45rem 0;
     border-bottom: 1px solid var(--border);
-    font-size: 0.82rem;
+    font-size: 0.81rem;
     align-items: baseline;
   }
 
   .event:last-child { border-bottom: none; }
-
-  .event-when {
-    font-size: 0.68rem;
-    color: var(--muted);
-    line-height: 1.4;
-  }
-
-  /* DIRECTIONS TABLE */
-  .dir-table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 0.82rem;
-  }
-
-  .dir-table td {
-    padding: 0.45rem 0.6rem;
-    border-bottom: 1px solid var(--border);
-    vertical-align: middle;
-  }
-
-  .dir-table td:first-child {
-    color: var(--muted);
-    font-size: 0.72rem;
-    letter-spacing: 0.04em;
-    white-space: nowrap;
-    width: 35%;
-  }
-
-  .dir-table td:last-child {
-    text-align: right;
-    width: 80px;
-  }
-
-  .dir-table tr:last-child td { border-bottom: none; }
+  .event-when { font-size: 0.67rem; color: var(--muted); line-height: 1.4; }
 
   footer {
-    max-width: 800px;
-    margin: 0 auto;
     padding: 1rem 1.5rem 2rem;
-    font-size: 0.65rem;
-    letter-spacing: 0.06em;
+    font-size: 0.62rem;
+    letter-spacing: 0.05em;
     color: var(--muted);
     border-top: 1px solid var(--border);
+  }
+
+  @media (max-width: 700px) {
+    .sidebar { display: none; }
+    .resto-grid-all { grid-template-columns: 1fr 1fr; }
+    .park-grid { grid-template-columns: 1fr 1fr; }
   }
 </style>
 </head>
 <body>
 
 <header>
-  <div>
-    <div class="header-top">Field Brief &nbsp;|&nbsp; Chapman Commencement Weekend &nbsp;|&nbsp; May 22–24, 2026</div>
-    <h1>Operation: Jules &mdash; Dodge College of Film &amp; Media Arts</h1>
-  </div>
-  <div class="subject-photo">
-    <img src="jules.jpg" alt="Subject">
-    <div class="subject-label">Subject</div>
-  </div>
+  <div class="header-top">Field Brief &nbsp;|&nbsp; Chapman Commencement &nbsp;|&nbsp; May 22–24, 2026</div>
+  <h1>Operation: Jules &mdash; Dodge College of Film &amp; Media Arts</h1>
 </header>
 
-<div class="container">
+<div class="page-wrap">
 
-  <!-- FLIGHTS -->
-  <section>
-    <div class="section-label">Travel</div>
-    <h2>Flights</h2>
+  <!-- STICKY SIDEBAR -->
+  <aside class="sidebar">
+    <img src="jules.jpg" alt="Subject">
+    <div class="sidebar-label">Subject</div>
+  </aside>
 
-    <div class="flight-day">
-      <div class="flight-day-label">Friday May 22 &mdash; Outbound</div>
-      <div class="flight-legs">
-        <div class="flight-leg">
-          <div class="flight-num">UA 4168 &mdash; United Express / GoJet</div>
-          <div class="flight-route">ATW &rarr; ORD</div>
-          <div class="flight-times">Depart 12:24 PM &mdash; Arrive 1:46 PM</div>
-          <div class="flight-meta">Bombardier CRJ550 &middot; Seats 14A, 14B<br>
-            <a href="https://flightaware.com/live/flight/UAL4168" target="_blank">Track UA4168</a>
-          </div>
-        </div>
-        <div class="flight-leg">
-          <div class="flight-num">UA 1317 &mdash; United Airlines</div>
-          <div class="flight-route">ORD &rarr; SNA</div>
-          <div class="flight-times">Depart 4:20 PM &mdash; Arrive 6:52 PM</div>
-          <div class="flight-meta">Airbus A321neo &middot; Seats 36B, 36C &middot; Layover ORD: 2h 34m<br>
-            <a href="https://flightaware.com/live/flight/UAL1317" target="_blank">Track UA1317</a>
-          </div>
-        </div>
-      </div>
-    </div>
+  <!-- SCROLLING CONTENT -->
+  <div class="content">
+  <div class="container">
 
-    <div class="flight-day">
-      <div class="flight-day-label">Sunday May 24 &mdash; Return</div>
-      <div class="flight-legs">
-        <div class="flight-leg">
-          <div class="flight-num">UA 2132 &mdash; United Airlines</div>
-          <div class="flight-route">SNA &rarr; DEN</div>
-          <div class="flight-times">Depart 1:08 PM &mdash; Arrive 4:30 PM</div>
-          <div class="flight-meta">Boeing 737 MAX 8 &middot; Seats 38B, 38C<br>
-            <a href="https://flightaware.com/live/flight/UAL2132" target="_blank">Track UA2132</a>
+    <!-- FLIGHTS -->
+    <section>
+      <div class="section-label">Travel</div>
+      <h2>Flights</h2>
+
+      <div class="flight-day">
+        <div class="flight-day-label">Friday May 22 &mdash; Outbound</div>
+        <div class="flight-legs">
+          <div class="flight-leg">
+            <div class="flight-num">UA 4168 &mdash; GoJet</div>
+            <div class="flight-route">ATW &rarr; ORD</div>
+            <div class="flight-times">12:24 PM &rarr; 1:46 PM</div>
+            <div class="flight-meta">CRJ550 &middot; Seats 14A, 14B &middot; <a href="https://flightaware.com/live/flight/UAL4168" target="_blank">Track</a></div>
           </div>
-        </div>
-        <div class="flight-leg">
-          <div class="flight-num">UA 1204 &mdash; United Airlines</div>
-          <div class="flight-route">DEN &rarr; ATW</div>
-          <div class="flight-times">Depart 5:40 PM &mdash; Arrive 9:04 PM</div>
-          <div class="flight-meta">Airbus A319 &middot; Seats 34B, 34C &middot; Layover DEN: 1h 10m<br>
-            <a href="https://flightaware.com/live/flight/UAL1204" target="_blank">Track UA1204</a>
+          <div class="flight-leg">
+            <div class="flight-num">UA 1317 &mdash; United</div>
+            <div class="flight-route">ORD &rarr; SNA</div>
+            <div class="flight-times">4:20 PM &rarr; 6:52 PM</div>
+            <div class="flight-meta">A321neo &middot; Seats 36B, 36C &middot; Layover 2h 34m &middot; <a href="https://flightaware.com/live/flight/UAL1317" target="_blank">Track</a></div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
 
-  <!-- HOMEBASE -->
-  <div class="homebase">
-    <div>
-      <div class="homebase-label">Homebase</div>
-      <div class="homebase-address">2722 Strawberry Lane, Santa Ana</div>
-      <div class="homebase-meta">4 mi to Chapman &nbsp;&middot;&nbsp; 10 min to SNA Airport via 55S &nbsp;&middot;&nbsp; 10 min to Old Towne Orange</div>
-    </div>
-    <a class="dir-btn" href="https://www.google.com/maps/search/2722+Strawberry+Lane,+Santa+Ana,+CA" target="_blank">Map It</a>
-  </div>
-
-  <!-- WEATHER WARNING -->
-  <div style="background:#1a0a00; border:1px solid #c0392b; border-left:4px solid #c0392b; padding:0.9rem 1.1rem; margin-bottom:1.5rem;">
-    <div style="font-size:0.6rem; letter-spacing:0.18em; text-transform:uppercase; color:#c0392b; margin-bottom:0.3rem;">Weather Alert &mdash; Saturday Night</div>
-    <div style="font-size:1rem; font-weight:700; color:#fff; margin-bottom:0.4rem;">Temperature drops 9&deg; during the ceremony. Bring layers.</div>
-    <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:0.5rem; margin-bottom:0.5rem;">
-      <div style="background:#111; padding:0.5rem 0.6rem; text-align:center;">
-        <div style="font-size:1.2rem; font-weight:700; color:#e8c87a;">72&deg;</div>
-        <div style="font-size:0.62rem; color:#888; text-transform:uppercase; letter-spacing:0.06em;">6 PM</div>
-      </div>
-      <div style="background:#111; padding:0.5rem 0.6rem; text-align:center;">
-        <div style="font-size:1.2rem; font-weight:700; color:#d4a84b;">67&deg;</div>
-        <div style="font-size:0.62rem; color:#888; text-transform:uppercase; letter-spacing:0.06em;">7:30 PM (start)</div>
-      </div>
-      <div style="background:#111; padding:0.5rem 0.6rem; text-align:center;">
-        <div style="font-size:1.2rem; font-weight:700; color:#b06020;">63&deg;</div>
-        <div style="font-size:0.62rem; color:#888; text-transform:uppercase; letter-spacing:0.06em;">9 PM &amp; dropping</div>
-      </div>
-    </div>
-    <div style="font-size:0.78rem; color:#c8a090; line-height:1.5;">
-      Open field, no windbreak. Feels colder than the reading. Dew point holds at 56&deg; all night &mdash; humidity will add to the chill.
-      <strong style="color:#fff;">Everyone needs a jacket or warm layer in the bag when they arrive.</strong>
-      Ceremony ends ~10 PM.
-    </div>
-  </div>
-
-  <!-- TOMORROW: DODGE -->
-  <section>
-    <div class="section-label">The Main Event</div>
-    <h2>Tomorrow &mdash; Dodge College Ceremony</h2>
-
-    <div class="ceremony-card">
-      <div class="c-header">
-        <div class="c-title">Dodge College of Film &amp; Media Arts</div>
-        <div class="c-time-badge">Saturday &mdash; 7:30 PM &mdash; ~140 min</div>
-      </div>
-      <ul class="c-rows">
-        <li><span class="ck">Where</span> Wilson Field, Chapman University, One University Drive, Orange CA 92866</li>
-        <li><span class="ck">Graduate</span> Must be at Hutton Gym by 6:45 PM to line up</li>
-        <li><span class="ck">Guests</span> Gates open approx. 7:00 PM. First-come seating within ticketed sections. Arrive by 6:45.</li>
-        <li><span class="ck">Ends</span> Approx. 10:00 PM</li>
-        <li><span class="ck">Drop-off</span> Lyft/Uber: McCardle Gate, E. Walnut Ave (north side). ADA: same, or Keck Center, 400 N Center St.</li>
-        <li><span class="ck">Parking</span> Free in all designated structures. See Parking section below for locations + Maps links. Anderson: 1 hr exit — plan accordingly for dinner reservations.</li>
-        <li><span class="ck">No entry</span> Food, drinks, balloons, large bags, noisemakers, coolers, signs</li>
-        <li><span class="ck">Attire</span> Dressy casual. Bring a layer — evening on an open field.</li>
-        <li><span class="ck">Directions</span> <a href="https://www.google.com/maps/dir/2722+Strawberry+Lane,+Santa+Ana,+CA/One+University+Drive,+Orange,+CA+92866" target="_blank">Homebase &rarr; Chapman</a></li>
-        <li><span class="ck">Weather Sat PM</span> <a href="https://forecast.weather.gov/MapClick.php?lat=33.7879&lon=-117.8531&unit=0&lg=english&FcstType=graphical" target="_blank">NWS Hourly Forecast — Wilson Field</a> &nbsp;&middot;&nbsp; <a href="https://www.wunderground.com/hourly/us/ca/orange/33.7879,-117.8531/date/2026-05-23" target="_blank">Weather Underground</a></li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- CAMPUS MAP -->
-  <section>
-    <div class="section-label">Campus</div>
-    <h2>Commencement Map</h2>
-    <embed src="Commencement-Map.pdf" type="application/pdf" class="map-embed">
-    <div class="map-key">
-      <div><span>&#9632;</span> Field Entrance</div>
-      <div><span>R</span> Restrooms</div>
-      <div><span>+</span> First Aid</div>
-      <div><span>&#9855;</span> ADA Access</div>
-      <div><span>&#9733;</span> Guest Line-Up</div>
-      <div>Lyft/Uber: N + W edges</div>
-      <div>ADA Drop-Off: N + E</div>
-      <div>Gift Shop: Argyros Forum (E)</div>
-    </div>
-    <p style="font-size:0.72rem; color:var(--muted); margin-top:0.4rem;">
-      Map not loading? <a href="Commencement-Map.pdf" target="_blank">Open PDF</a>
-    </p>
-  </section>
-
-  <!-- PARKING -->
-  <section>
-    <div class="section-label">Parking</div>
-    <h2>Saturday Night — Where to Park</h2>
-
-    <div class="park-grid">
-      <div class="park-card">
-        <div class="park-name">Barrera Structure</div>
-        <div class="park-addr">200 W Sycamore Ave (at Lemon St)<br>Behind Fowler School of Law</div>
-        <div class="park-note">Free during commencement. Exit wait: up to 30 min after ceremony.</div>
-        <a href="https://www.google.com/maps/dir/2722+Strawberry+Lane,+Santa+Ana,+CA/200+W+Sycamore+Ave,+Orange,+CA+92866" target="_blank">Directions from Homebase</a>
-      </div>
-      <div class="park-card">
-        <div class="park-name">Anderson Structure</div>
-        <div class="park-addr">300 E Walnut Ave<br>Underground, north edge of campus</div>
-        <div class="park-note">Free during commencement. Exit wait: up to 1 hr after ceremony. Factor into dinner reservations.</div>
-        <a href="https://www.google.com/maps/dir/2722+Strawberry+Lane,+Santa+Ana,+CA/300+E+Walnut+Ave,+Orange,+CA+92866" target="_blank">Directions from Homebase</a>
-      </div>
-      <div class="park-card">
-        <div class="park-name">Street Parking</div>
-        <div class="park-addr">Glassell, Palm, Sycamore, Center St<br>Residential blocks around campus</div>
-        <div class="park-note">Permit restrictions waived during Commencement Weekend. Best option to avoid structure exit delays — walk to Wilson Field.</div>
-        <a href="https://www.google.com/maps/search/parking+near+Chapman+University,+Orange,+CA" target="_blank">View area on Maps</a>
-      </div>
-    </div>
-    <p style="font-size:0.72rem; color:var(--muted);">No parking at One University Drive. Rideshare drop-off: McCardle Gate, E. Walnut Ave (north side of campus).</p>
-  </section>
-
-  <!-- DINING -->
-  <section>
-    <div class="section-label">Eat</div>
-    <h2>Restaurants</h2>
-
-    <div class="zone-label">Old Towne Orange &mdash; Steps from Chapman</div>
-    <div class="resto-grid-3">
-      <div class="resto">
-        <div class="resto-name">O SEA</div>
-        <div class="resto-type">Seafood / Special Occasion</div>
-        <p>Best Seafood OC (LA Times). Progressive, steps from campus. Book ahead.</p>
-        <div class="resto-links">
-          <a href="https://www.eatosea.com/" target="_blank">Website &rarr;</a>
-          <a href="https://www.google.com/maps/dir/2722+Strawberry+Lane,+Santa+Ana,+CA/109+S+Glassell+St,+Orange,+CA" target="_blank">From Homebase</a>
-          <a href="https://www.google.com/maps/dir/One+University+Drive,+Orange,+CA+92866/109+S+Glassell+St,+Orange,+CA" target="_blank">From Chapman</a>
+      <div class="flight-day">
+        <div class="flight-day-label">Sunday May 24 &mdash; Return</div>
+        <div class="flight-legs">
+          <div class="flight-leg">
+            <div class="flight-num">UA 2132 &mdash; United</div>
+            <div class="flight-route">SNA &rarr; DEN</div>
+            <div class="flight-times">1:08 PM &rarr; 4:30 PM</div>
+            <div class="flight-meta">737 MAX 8 &middot; Seats 38B, 38C &middot; <a href="https://flightaware.com/live/flight/UAL2132" target="_blank">Track</a></div>
+          </div>
+          <div class="flight-leg">
+            <div class="flight-num">UA 1204 &mdash; United</div>
+            <div class="flight-route">DEN &rarr; ATW</div>
+            <div class="flight-times">5:40 PM &rarr; 9:04 PM</div>
+            <div class="flight-meta">A319 &middot; Seats 34B, 34C &middot; Layover 1h 10m &middot; <a href="https://flightaware.com/live/flight/UAL1204" target="_blank">Track</a></div>
+          </div>
         </div>
       </div>
-      <div class="resto">
-        <div class="resto-name">HAVEN Craft Kitchen</div>
-        <div class="resto-type">American / Group-Friendly</div>
-        <p>17-year anchor of Old Towne. Serious bourbon + craft beer list. Good vibe.</p>
-        <div class="resto-links">
-          <a href="https://www.havencraftkitchen.com/" target="_blank">Website &rarr;</a>
-          <a href="https://www.google.com/maps/dir/2722+Strawberry+Lane,+Santa+Ana,+CA/190+S+Glassell+St,+Orange,+CA" target="_blank">From Homebase</a>
-          <a href="https://www.google.com/maps/dir/One+University+Drive,+Orange,+CA+92866/190+S+Glassell+St,+Orange,+CA" target="_blank">From Chapman</a>
-        </div>
+    </section>
+
+    <!-- HOMEBASE -->
+    <div class="homebase">
+      <div>
+        <div class="homebase-label">Homebase</div>
+        <div class="homebase-address">2722 Strawberry Lane, Santa Ana</div>
+        <div class="homebase-meta">4 mi to Chapman &nbsp;&middot;&nbsp; 10 min to SNA via 55S &nbsp;&middot;&nbsp; 10 min to Old Towne Orange</div>
       </div>
-      <div class="resto">
-        <div class="resto-name">King's Fish House</div>
-        <div class="resto-type">Seafood / Casual Upscale</div>
-        <p>Live oysters, seasonal catches, shellfish. Stadium Promenade. Good for mixed groups.</p>
-        <div class="resto-links">
-          <a href="https://www.kingsfishhouse.com/orange" target="_blank">Website &rarr;</a>
-          <a href="https://www.google.com/maps/dir/2722+Strawberry+Lane,+Santa+Ana,+CA/King%27s+Fish+House,+Orange,+CA" target="_blank">From Homebase</a>
-          <a href="https://www.google.com/maps/dir/One+University+Drive,+Orange,+CA+92866/King%27s+Fish+House,+Orange,+CA" target="_blank">From Chapman</a>
-        </div>
-      </div>
+      <a class="dir-btn" href="https://www.google.com/maps/search/2722+Strawberry+Lane,+Santa+Ana,+CA" target="_blank">Map It</a>
     </div>
 
-    <div class="zone-label">Orange Hills &mdash; 10 min from Chapman</div>
-    <div class="resto-grid-3">
-      <div class="resto">
-        <div class="resto-name">Orange Hill</div>
-        <div class="resto-type">Steakhouse / Splurge</div>
-        <p>Hilltop views of Catalina + OC coast. USDA Prime steaks. The celebration option.</p>
-        <div class="resto-links">
-          <a href="https://www.theorangehillrestaurant.com/" target="_blank">Website &rarr;</a>
-          <a href="https://www.google.com/maps/dir/2722+Strawberry+Lane,+Santa+Ana,+CA/Orange+Hill+Restaurant,+Orange,+CA" target="_blank">From Homebase</a>
-          <a href="https://www.google.com/maps/dir/One+University+Drive,+Orange,+CA+92866/Orange+Hill+Restaurant,+Orange,+CA" target="_blank">From Chapman</a>
+    <!-- WEATHER WARNING -->
+    <div style="background:#1a0a00; border:1px solid #c0392b; border-left:4px solid #c0392b; padding:0.85rem 1.1rem; margin-bottom:1.5rem;">
+      <div style="font-size:0.58rem; letter-spacing:0.18em; text-transform:uppercase; color:#c0392b; margin-bottom:0.25rem;">Weather Alert &mdash; Saturday Night</div>
+      <div style="font-size:0.95rem; font-weight:700; color:#fff; margin-bottom:0.4rem;">9&deg; drop during ceremony. Bring layers.</div>
+      <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:0.4rem; margin-bottom:0.45rem;">
+        <div style="background:#111; padding:0.45rem 0.5rem; text-align:center;">
+          <div style="font-size:1.15rem; font-weight:700; color:#e8c87a;">72&deg;</div>
+          <div style="font-size:0.6rem; color:#888; text-transform:uppercase; letter-spacing:0.05em;">6 PM</div>
+        </div>
+        <div style="background:#111; padding:0.45rem 0.5rem; text-align:center;">
+          <div style="font-size:1.15rem; font-weight:700; color:#d4a84b;">67&deg;</div>
+          <div style="font-size:0.6rem; color:#888; text-transform:uppercase; letter-spacing:0.05em;">7:30 PM Start</div>
+        </div>
+        <div style="background:#111; padding:0.45rem 0.5rem; text-align:center;">
+          <div style="font-size:1.15rem; font-weight:700; color:#b06020;">63&deg;</div>
+          <div style="font-size:0.6rem; color:#888; text-transform:uppercase; letter-spacing:0.05em;">9 PM &amp; dropping</div>
         </div>
       </div>
+      <div style="font-size:0.77rem; color:#c8a090; line-height:1.5;">Open field, no windbreak. Dew point 56&deg; all night — humidity makes it feel colder. <strong style="color:#fff;">Everyone needs a jacket in the bag on arrival.</strong> Ends ~10 PM. &nbsp;<a href="https://forecast.weather.gov/MapClick.php?lat=33.7879&lon=-117.8531&unit=0&lg=english&FcstType=graphical" target="_blank">NWS Forecast</a></div>
     </div>
 
-    <div class="zone-label">Downtown Santa Ana &mdash; Near Homebase</div>
-    <div class="resto-grid-3">
-      <div class="resto">
-        <div class="resto-name">Benchmark</div>
-        <div class="resto-type">New American / Neighborhood</div>
-        <p>Market-driven, upscale casual. Beloved local. Easy night close to base.</p>
-        <div class="resto-links">
-          <a href="https://benchmarkoc.com/" target="_blank">Website &rarr;</a>
-          <a href="https://www.google.com/maps/dir/2722+Strawberry+Lane,+Santa+Ana,+CA/601+E+Santa+Ana+Blvd,+Santa+Ana,+CA" target="_blank">From Homebase</a>
-          <a href="https://www.google.com/maps/dir/One+University+Drive,+Orange,+CA+92866/601+E+Santa+Ana+Blvd,+Santa+Ana,+CA" target="_blank">From Chapman</a>
+    <!-- CEREMONY -->
+    <section>
+      <div class="section-label">The Main Event</div>
+      <h2>Tomorrow &mdash; Dodge College Ceremony</h2>
+      <div class="ceremony-card">
+        <div class="c-header">
+          <div class="c-title">Dodge College of Film &amp; Media Arts</div>
+          <div class="c-time-badge">Saturday &mdash; 7:30 PM &mdash; ~140 min</div>
+        </div>
+        <ul class="c-rows">
+          <li><span class="ck">Where</span> Wilson Field, One University Drive, Orange CA 92866</li>
+          <li><span class="ck">Graduate</span> Hutton Gym lineup by 6:45 PM</li>
+          <li><span class="ck">Guests</span> Gates open ~7:00 PM. First-come seating. Arrive by 6:45.</li>
+          <li><span class="ck">Ends</span> Approx. 10:00 PM</li>
+          <li><span class="ck">Drop-off</span> Lyft/Uber: McCardle Gate, E. Walnut Ave (north). ADA: same or Keck Center, 400 N Center St.</li>
+          <li><span class="ck">No entry</span> Food, drinks, balloons, large bags, noisemakers, coolers, signs</li>
+          <li><span class="ck">Attire</span> Dressy casual. Jacket — it drops to 63° by 9 PM.</li>
+          <li><span class="ck">Directions</span> <a href="https://www.google.com/maps/dir/2722+Strawberry+Lane,+Santa+Ana,+CA/One+University+Drive,+Orange,+CA+92866" target="_blank">Homebase &rarr; Chapman</a></li>
+          <li><span class="ck">Weather</span> <a href="https://forecast.weather.gov/MapClick.php?lat=33.7879&lon=-117.8531&unit=0&lg=english&FcstType=graphical" target="_blank">NWS Hourly — Wilson Field</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- MAP -->
+    <section>
+      <div class="section-label">Campus</div>
+      <h2>Commencement Map</h2>
+      <embed src="Commencement-Map.pdf" type="application/pdf" class="map-embed">
+      <div class="map-key">
+        <div>&#9632; Field Entrance</div>
+        <div>R Restrooms</div>
+        <div>+ First Aid</div>
+        <div>&#9855; ADA Access</div>
+        <div>&#9733; Guest Line-Up</div>
+        <div>Lyft/Uber: N + W</div>
+        <div>ADA Drop-Off: N + E</div>
+        <div>Gift Shop: E side</div>
+      </div>
+      <p style="font-size:0.7rem; color:var(--muted); margin-top:0.35rem;"><a href="Commencement-Map.pdf" target="_blank">Open PDF directly</a></p>
+    </section>
+
+    <!-- PARKING -->
+    <section>
+      <div class="section-label">Parking</div>
+      <h2>Saturday Night — Where to Park</h2>
+      <div class="park-grid">
+        <div class="park-card" style="border-left:3px solid #4a9e6b;">
+          <div style="font-size:0.58rem; letter-spacing:0.14em; text-transform:uppercase; color:#4a9e6b; margin-bottom:0.2rem;">#1 Best Option</div>
+          <div class="park-name">Street Parking</div>
+          <div class="park-addr">Glassell, Palm, Sycamore, Center St<br>Residential blocks around campus</div>
+          <div class="park-note">Permit restrictions waived during Commencement. Arrive by 6:30 to find a spot. Walk to Wilson Field — zero exit delay after ceremony. Best for dinner plans.</div>
+          <a href="https://www.google.com/maps/search/parking+near+Chapman+University,+Orange,+CA" target="_blank">View area on Maps</a>
+        </div>
+        <div class="park-card" style="border-left:3px solid var(--accent);">
+          <div style="font-size:0.58rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--accent); margin-bottom:0.2rem;">#2 If Street Is Full</div>
+          <div class="park-name">Barrera Structure</div>
+          <div class="park-addr">200 W Sycamore Ave at Lemon St<br>Behind Fowler School of Law</div>
+          <div class="park-note">Free. Exit wait: up to 30 min after ceremony. Manageable if you don't have an early reservation.</div>
+          <a href="https://www.google.com/maps/dir/2722+Strawberry+Lane,+Santa+Ana,+CA/200+W+Sycamore+Ave,+Orange,+CA+92866" target="_blank">Directions from Homebase</a>
+        </div>
+        <div class="park-card" style="border-left:3px solid #666;">
+          <div style="font-size:0.58rem; letter-spacing:0.14em; text-transform:uppercase; color:#666; margin-bottom:0.2rem;">#3 Last Resort</div>
+          <div class="park-name">Anderson Structure</div>
+          <div class="park-addr">300 E Walnut Ave, underground<br>North edge of campus</div>
+          <div class="park-note">Free. Exit wait: up to 1 hr. Avoid if you have dinner plans — you will be stuck. Rideshare out is smarter.</div>
+          <a href="https://www.google.com/maps/dir/2722+Strawberry+Lane,+Santa+Ana,+CA/300+E+Walnut+Ave,+Orange,+CA+92866" target="_blank">Directions from Homebase</a>
         </div>
       </div>
-    </div>
-  </section>
+      <p style="font-size:0.7rem; color:var(--muted);">No parking at One University Drive. Rideshare drop-off: McCardle Gate, Walnut Ave (north). <strong style="color:var(--text);">Recommendation: street park early, walk in, Lyft out if going straight to dinner.</strong></p>
+    </section>
 
-  <!-- THIS WEEKEND -->
-  <section>
-    <div class="section-label">Area</div>
-    <h2>This Weekend</h2>
-    <div class="event-list">
+    <!-- DINING — one unified grid -->
+    <section>
+      <div class="section-label">Eat</div>
+      <h2>Restaurants</h2>
+
+      <div class="resto-grid-all">
+
+        <div class="zone-divider">Old Towne Orange &mdash; Steps from Chapman</div>
+
+        <div class="resto">
+          <div class="resto-name">O SEA</div>
+          <div class="resto-type">Seafood / Special Occasion</div>
+          <p>Best Seafood OC (LA Times). Progressive, steps from campus. Book ahead.</p>
+          <div class="resto-links">
+            <a href="https://www.eatosea.com/" target="_blank">Website &rarr;</a>
+            <a href="https://www.google.com/maps/dir/2722+Strawberry+Lane,+Santa+Ana,+CA/109+S+Glassell+St,+Orange,+CA" target="_blank">From Homebase</a>
+            <a href="https://www.google.com/maps/dir/One+University+Drive,+Orange,+CA+92866/109+S+Glassell+St,+Orange,+CA" target="_blank">From Chapman</a>
+          </div>
+        </div>
+
+        <div class="resto">
+          <div class="resto-name">HAVEN Craft Kitchen</div>
+          <div class="resto-type">American / Group-Friendly</div>
+          <p>17-year anchor of Old Towne. Serious bourbon + craft beer. Good atmosphere.</p>
+          <div class="resto-links">
+            <a href="https://www.havencraftkitchen.com/" target="_blank">Website &rarr;</a>
+            <a href="https://www.google.com/maps/dir/2722+Strawberry+Lane,+Santa+Ana,+CA/190+S+Glassell+St,+Orange,+CA" target="_blank">From Homebase</a>
+            <a href="https://www.google.com/maps/dir/One+University+Drive,+Orange,+CA+92866/190+S+Glassell+St,+Orange,+CA" target="_blank">From Chapman</a>
+          </div>
+        </div>
+
+        <div class="resto">
+          <div class="resto-name">King's Fish House</div>
+          <div class="resto-type">Seafood / Casual Upscale</div>
+          <p>Live oysters, seasonal catches, shellfish. Good for mixed groups.</p>
+          <div class="resto-links">
+            <a href="https://www.kingsfishhouse.com/orange" target="_blank">Website &rarr;</a>
+            <a href="https://www.google.com/maps/dir/2722+Strawberry+Lane,+Santa+Ana,+CA/King%27s+Fish+House,+Orange,+CA" target="_blank">From Homebase</a>
+            <a href="https://www.google.com/maps/dir/One+University+Drive,+Orange,+CA+92866/King%27s+Fish+House,+Orange,+CA" target="_blank">From Chapman</a>
+          </div>
+        </div>
+
+        <div class="zone-divider">Orange Hills &amp; Downtown Santa Ana</div>
+
+        <div class="resto">
+          <div class="resto-name">Orange Hill</div>
+          <div class="resto-type">Steakhouse / Splurge</div>
+          <p>Hilltop views of Catalina + OC coast. USDA Prime steaks. The celebration option.</p>
+          <div class="resto-links">
+            <a href="https://www.theorangehillrestaurant.com/" target="_blank">Website &rarr;</a>
+            <a href="https://www.google.com/maps/dir/2722+Strawberry+Lane,+Santa+Ana,+CA/Orange+Hill+Restaurant,+Orange,+CA" target="_blank">From Homebase</a>
+            <a href="https://www.google.com/maps/dir/One+University+Drive,+Orange,+CA+92866/Orange+Hill+Restaurant,+Orange,+CA" target="_blank">From Chapman</a>
+          </div>
+        </div>
+
+        <div class="resto">
+          <div class="resto-name">Benchmark</div>
+          <div class="resto-type">New American / Near Homebase</div>
+          <p>Market-driven, upscale casual. Beloved local. Easy night close to base.</p>
+          <div class="resto-links">
+            <a href="https://benchmarkoc.com/" target="_blank">Website &rarr;</a>
+            <a href="https://www.google.com/maps/dir/2722+Strawberry+Lane,+Santa+Ana,+CA/601+E+Santa+Ana+Blvd,+Santa+Ana,+CA" target="_blank">From Homebase</a>
+            <a href="https://www.google.com/maps/dir/One+University+Drive,+Orange,+CA+92866/601+E+Santa+Ana+Blvd,+Santa+Ana,+CA" target="_blank">From Chapman</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- THIS WEEKEND -->
+    <section>
+      <div class="section-label">Area</div>
+      <h2>This Weekend</h2>
       <div class="event">
         <span class="event-when">Fri&ndash;Mon</span>
-        <span><strong>Garden Grove Strawberry Festival</strong> — Free. Rides, live music, parade. ~15 min from homebase. Easiest downtime option. <a href="https://www.google.com/maps/dir/2722+Strawberry+Lane,+Santa+Ana,+CA/Garden+Grove+Strawberry+Festival" target="_blank">Directions</a></span>
+        <span><strong>Garden Grove Strawberry Festival</strong> — Free. Rides, live music, parade. ~15 min. <a href="https://www.google.com/maps/dir/2722+Strawberry+Lane,+Santa+Ana,+CA/Garden+Grove+Strawberry+Festival" target="_blank">Directions</a></span>
       </div>
       <div class="event">
         <span class="event-when">Fri&ndash;Sun<br>Evenings</span>
-        <span><strong>Tunes at the Dunes</strong> — Newport Beach. Live music, food trucks, waterfront. 20 min south. Good post-ceremony wind-down. <a href="https://www.google.com/maps/dir/2722+Strawberry+Lane,+Santa+Ana,+CA/Newport+Dunes+Waterfront+Resort,+Newport+Beach,+CA" target="_blank">Directions</a></span>
-      </div>
-      <div class="event">
-        <span class="event-when">Sat 7:38 PM</span>
-        <span><strong>Angels vs. Rangers</strong> — Angel Stadium, 12 min from Chapman. Saturday Night Fireworks after. Conflicts with Jules's ceremony — only works if you split up or skip. <a href="https://www.google.com/maps/dir/2722+Strawberry+Lane,+Santa+Ana,+CA/Angel+Stadium,+Anaheim,+CA" target="_blank">Directions</a></span>
+        <span><strong>Tunes at the Dunes</strong> — Newport Beach. Live music, food trucks, waterfront. 20 min south. <a href="https://www.google.com/maps/dir/2722+Strawberry+Lane,+Santa+Ana,+CA/Newport+Dunes+Waterfront+Resort,+Newport+Beach,+CA" target="_blank">Directions</a></span>
       </div>
       <div class="event">
         <span class="event-when">Sat&ndash;Sun<br>Daytime</span>
-        <span><strong>Old Towne Vintage Market</strong> — Orange. Steps from Chapman campus. Good pre-ceremony browse on Saturday afternoon. <a href="https://www.google.com/maps/dir/2722+Strawberry+Lane,+Santa+Ana,+CA/Old+Towne+Orange,+Orange,+CA" target="_blank">Directions</a></span>
+        <span><strong>Old Towne Vintage Market</strong> — Steps from Chapman. Good pre-ceremony browse Saturday afternoon. <a href="https://www.google.com/maps/dir/2722+Strawberry+Lane,+Santa+Ana,+CA/Old+Towne+Orange,+Orange,+CA" target="_blank">Directions</a></span>
       </div>
-    </div>
-  </section>
 
-  <!-- QUICK LINKS -->
-  <section>
-    <div class="section-label">Reference</div>
-    <h2>Quick Links</h2>
-    <ul class="row-list">
-      <li><span class="rk">Commencement map</span> <a href="Commencement-Map.pdf" target="_blank">Commencement-Map.pdf (local)</a></li>
-      <li><span class="rk">Chapman graduation</span> <a href="https://graduation.chapman.edu/day-of-details-for-guests/" target="_blank">Day-of Details</a></li>
-      <li><span class="rk">Homebase &rarr; Chapman</span> <a href="https://www.google.com/maps/dir/2722+Strawberry+Lane,+Santa+Ana,+CA/One+University+Drive,+Orange,+CA+92866" target="_blank">Google Maps</a></li>
-      <li><span class="rk">SNA Airport</span> <a href="https://www.google.com/maps/dir/John+Wayne+Airport,+Santa+Ana,+CA/2722+Strawberry+Lane,+Santa+Ana,+CA" target="_blank">Airport &rarr; Homebase</a></li>
-      <li><span class="rk">Strawberry Festival</span> <a href="https://www.strawberryfestival.org" target="_blank">strawberryfestival.org</a></li>
-    </ul>
-  </section>
+    </section>
 
-</div>
+    <!-- QUICK LINKS -->
+    <section>
+      <div class="section-label">Reference</div>
+      <h2>Quick Links</h2>
+      <ul class="row-list">
+        <li><span class="rk">Campus map</span> <a href="Commencement-Map.pdf" target="_blank">Commencement-Map.pdf</a></li>
+        <li><span class="rk">Chapman grad</span> <a href="https://graduation.chapman.edu/day-of-details-for-guests/" target="_blank">Day-of Details</a></li>
+        <li><span class="rk">Homebase &rarr; Chapman</span> <a href="https://www.google.com/maps/dir/2722+Strawberry+Lane,+Santa+Ana,+CA/One+University+Drive,+Orange,+CA+92866" target="_blank">Google Maps</a></li>
+        <li><span class="rk">Airport &rarr; Homebase</span> <a href="https://www.google.com/maps/dir/John+Wayne+Airport,+Santa+Ana,+CA/2722+Strawberry+Lane,+Santa+Ana,+CA" target="_blank">SNA &rarr; Strawberry Ln</a></li>
+        <li><span class="rk">Weather</span> <a href="https://forecast.weather.gov/MapClick.php?lat=33.7879&lon=-117.8531&unit=0&lg=english&FcstType=graphical" target="_blank">NWS Hourly — Wilson Field</a></li>
+      </ul>
+    </section>
 
-<footer>
-  Prepared May 22, 2026 &nbsp;|&nbsp; Chapman Commencement Weekend &nbsp;|&nbsp; Sources: Chapman University, eatosea.com, havencraftkitchen.com, theorangehillrestaurant.com, kingsfishhouse.com, benchmarkoc.com, NeighborhoodScout, OC Events
-</footer>
+  </div>
+
+  <footer>
+    Prepared May 22, 2026 &nbsp;|&nbsp; Sources: Chapman University, eatosea.com, havencraftkitchen.com, theorangehillrestaurant.com, kingsfishhouse.com, benchmarkoc.com, NWS, FlightAware
+  </footer>
+  </div><!-- end .content -->
+
+</div><!-- end .page-wrap -->
 
 </body>
 </html>
