@@ -361,6 +361,73 @@
   .event:last-child { border-bottom: none; }
   .event-when { font-size: 0.67rem; color: var(--muted); line-height: 1.4; }
 
+  /* LIGHTBOX */
+  #lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.95);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #lightbox.open { display: flex; }
+
+  #lightbox img {
+    max-width: calc(100vw - 120px);
+    max-height: calc(100vh - 60px);
+    object-fit: contain;
+    display: block;
+    user-select: none;
+  }
+
+  .lb-btn {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 2.5rem;
+    cursor: pointer;
+    padding: 1rem;
+    opacity: 0.5;
+    line-height: 1;
+    z-index: 1001;
+  }
+
+  .lb-btn:hover { opacity: 1; }
+  #lb-prev { left: 0.5rem; }
+  #lb-next { right: 0.5rem; }
+
+  #lb-close {
+    position: fixed;
+    top: 1rem;
+    right: 1.2rem;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1.8rem;
+    cursor: pointer;
+    opacity: 0.5;
+    z-index: 1001;
+    line-height: 1;
+  }
+
+  #lb-close:hover { opacity: 1; }
+
+  #lb-counter {
+    position: fixed;
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: -apple-system, sans-serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    color: #666;
+  }
+
   /* PHOTO GALLERY */
   .gallery-grid {
     display: grid;
@@ -695,5 +762,47 @@
 
 </div><!-- end .page-wrap -->
 
+<!-- LIGHTBOX -->
+<div id="lightbox">
+  <button id="lb-close">&times;</button>
+  <button class="lb-btn" id="lb-prev">&#8249;</button>
+  <img id="lb-img" src="" alt="">
+  <button class="lb-btn" id="lb-next">&#8250;</button>
+  <div id="lb-counter"></div>
+</div>
+
+<script>
+  const photos = ['p01.jpg','p02.jpg','p03.jpg','p04.jpg','p05.jpg',
+                  'p06.jpg','p07.jpg','p08.jpg','p09.jpg','p10.jpg'];
+  let current = 0;
+  const lb = document.getElementById('lightbox');
+  const lbImg = document.getElementById('lb-img');
+  const lbCounter = document.getElementById('lb-counter');
+
+  function show(n) {
+    current = (n + photos.length) % photos.length;
+    lbImg.src = photos[current];
+    lbCounter.textContent = (current + 1) + ' / ' + photos.length;
+  }
+
+  function open(n) { show(n); lb.classList.add('open'); }
+  function close() { lb.classList.remove('open'); }
+
+  document.querySelectorAll('.gallery-grid a').forEach((a, i) => {
+    a.addEventListener('click', e => { e.preventDefault(); open(i); });
+  });
+
+  document.getElementById('lb-prev').addEventListener('click', () => show(current - 1));
+  document.getElementById('lb-next').addEventListener('click', () => show(current + 1));
+  document.getElementById('lb-close').addEventListener('click', close);
+  lb.addEventListener('click', e => { if (e.target === lb) close(); });
+
+  document.addEventListener('keydown', e => {
+    if (!lb.classList.contains('open')) return;
+    if (e.key === 'ArrowLeft')  show(current - 1);
+    if (e.key === 'ArrowRight') show(current + 1);
+    if (e.key === 'Escape')     close();
+  });
+</script>
 </body>
 </html>
