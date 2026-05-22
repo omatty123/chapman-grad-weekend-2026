@@ -281,46 +281,37 @@
   .park-note { font-size: 0.7rem; color: #888; margin-bottom: 0.35rem; line-height: 1.35; }
   .park-card a { font-size: 0.65rem; }
 
-  /* RESTAURANTS — one unified grid, zone labels span all cols */
-  .resto-grid-all {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 0.5rem;
-  }
-
-  .zone-divider {
-    grid-column: 1 / -1;
-    font-size: 0.6rem;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
+  /* CUISINE MAP LINKS */
+  .cuisine-note {
+    font-size: 0.7rem;
     color: var(--muted);
-    border-bottom: 1px solid var(--border);
-    padding-bottom: 0.22rem;
-    margin-top: 0.4rem;
+    letter-spacing: 0.04em;
+    margin-bottom: 0.9rem;
   }
 
-  .zone-divider:first-child { margin-top: 0; }
+  .cuisine-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+  }
 
-  .resto {
+  .cuisine-tag {
+    display: inline-block;
+    padding: 0.45rem 1rem;
     background: var(--surface);
     border: 1px solid var(--border);
-    padding: 0.72rem 0.8rem;
-  }
-
-  .resto-name { font-size: 0.82rem; font-weight: 700; color: #fff; margin-bottom: 0.08rem; }
-
-  .resto-type {
-    font-size: 0.6rem;
-    letter-spacing: 0.06em;
+    color: var(--link);
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.07em;
     text-transform: uppercase;
-    color: var(--accent);
-    margin-bottom: 0.28rem;
+    text-decoration: none;
   }
 
-  .resto p { font-size: 0.74rem; color: #888; line-height: 1.35; margin-bottom: 0.45rem; }
-
-  .resto-links { display: flex; flex-direction: column; gap: 0.18rem; }
-  .resto-links a { font-size: 0.62rem; color: var(--link); }
+  .cuisine-tag:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
 
   /* FLIGHTS */
   .flight-day { margin-bottom: 0.75rem; }
@@ -472,7 +463,7 @@
 
   @media (max-width: 700px) {
     .sidebar { display: none; }
-    .resto-grid-all { grid-template-columns: 1fr 1fr; }
+    .cuisine-grid { gap: 0.35rem; }
     .park-grid { grid-template-columns: 1fr 1fr; }
   }
 </style>
@@ -643,96 +634,29 @@
       <p style="font-size:0.7rem; color:var(--muted);">No parking at One University Drive. Rideshare drop-off: McCardle Gate, Walnut Ave (north). <strong style="color:var(--text);">Recommendation: street park early, walk in, Lyft out if going straight to dinner.</strong></p>
     </section>
 
-    <!-- DINING — one unified grid -->
+    <!-- DINING — cuisine search links -->
     <section>
       <div class="section-label">Eat</div>
       <h2>Restaurants</h2>
+      <div class="cuisine-note">Live map searches centered on Old Towne Orange / Chapman area. Results always current.</div>
 
-      <div class="resto-grid-all">
-
-        <div class="zone-divider">Old Towne Orange &mdash; Steps from Chapman</div>
-
-        <div class="resto">
-          <div class="resto-name">O SEA</div>
-          <div class="resto-type">Seafood / Special Occasion</div>
-          <p>Best Seafood OC (LA Times). Progressive, steps from campus. Book ahead.</p>
-          <div class="resto-links">
-            <a href="https://www.eatosea.com/" target="_blank">Website &rarr;</a>
-            <a href="https://www.google.com/maps/dir/2722+Strawberry+Lane,+Santa+Ana,+CA/109+S+Glassell+St,+Orange,+CA" target="_blank">From Homebase</a>
-            <a href="https://www.google.com/maps/dir/One+University+Drive,+Orange,+CA+92866/109+S+Glassell+St,+Orange,+CA" target="_blank">From Chapman</a>
-          </div>
-        </div>
-
-        <div class="resto">
-          <div class="resto-name">HAVEN Craft Kitchen</div>
-          <div class="resto-type">American / Group-Friendly</div>
-          <p>17-year anchor of Old Towne. Serious bourbon + craft beer. Good atmosphere.</p>
-          <div class="resto-links">
-            <a href="https://www.havencraftkitchen.com/" target="_blank">Website &rarr;</a>
-            <a href="https://www.google.com/maps/dir/2722+Strawberry+Lane,+Santa+Ana,+CA/190+S+Glassell+St,+Orange,+CA" target="_blank">From Homebase</a>
-            <a href="https://www.google.com/maps/dir/One+University+Drive,+Orange,+CA+92866/190+S+Glassell+St,+Orange,+CA" target="_blank">From Chapman</a>
-          </div>
-        </div>
-
-        <div class="resto">
-          <div class="resto-name">King's Fish House</div>
-          <div class="resto-type">Seafood / Casual Upscale</div>
-          <p>Live oysters, seasonal catches, shellfish. Good for mixed groups.</p>
-          <div class="resto-links">
-            <a href="https://www.kingsfishhouse.com/orange" target="_blank">Website &rarr;</a>
-            <a href="https://www.google.com/maps/dir/2722+Strawberry+Lane,+Santa+Ana,+CA/King%27s+Fish+House,+Orange,+CA" target="_blank">From Homebase</a>
-            <a href="https://www.google.com/maps/dir/One+University+Drive,+Orange,+CA+92866/King%27s+Fish+House,+Orange,+CA" target="_blank">From Chapman</a>
-          </div>
-        </div>
-
-        <div class="zone-divider">Korean &amp; Vegetarian</div>
-
-        <div class="resto">
-          <div class="resto-name">Rutabegorz</div>
-          <div class="resto-type">Vegetarian / Old Towne Orange</div>
-          <p>OC vegetarian institution since 1970. Wraps, salads, fresh veg — steps from Chapman on Glassell. Fri–Sat open until 8 PM, closed Sun.</p>
-          <div class="resto-links">
-            <a href="https://orange.rutabegorz.com/" target="_blank">Website &rarr;</a>
-            <a href="https://www.google.com/maps/dir/2722+Strawberry+Lane,+Santa+Ana,+CA/264+N+Glassell+St,+Orange,+CA" target="_blank">From Homebase</a>
-            <a href="https://www.google.com/maps/dir/One+University+Drive,+Orange,+CA+92866/264+N+Glassell+St,+Orange,+CA" target="_blank">From Chapman</a>
-          </div>
-        </div>
-
-        <div class="resto">
-          <div class="resto-name">HamaHippo Korean Kitchen</div>
-          <div class="resto-type">Korean / Vegetarian-Friendly / Fullerton</div>
-          <p>Tofu dolsot bibimbap, mushroom soondubu (can be made veg), kimchi fries. 15 min from Chapman. Closed Sundays.</p>
-          <div class="resto-links">
-            <a href="https://www.yelp.com/biz/hamahippo-korean-kitchen-fullerton" target="_blank">Yelp &rarr;</a>
-            <a href="https://www.google.com/maps/dir/2722+Strawberry+Lane,+Santa+Ana,+CA/2219+N+Harbor+Blvd,+Fullerton,+CA" target="_blank">From Homebase</a>
-            <a href="https://www.google.com/maps/dir/One+University+Drive,+Orange,+CA+92866/2219+N+Harbor+Blvd,+Fullerton,+CA" target="_blank">From Chapman</a>
-          </div>
-        </div>
-
-        <div class="resto">
-          <div class="resto-name">Mo Ran Gak</div>
-          <div class="resto-type">Korean BBQ / Garden Grove</div>
-          <p>Classic OC Korean BBQ institution. Garden Grove's Korean corridor. Bulgogi, lettuce wraps, banchan spread. 15 min from homebase.</p>
-          <div class="resto-links">
-            <a href="https://www.yelp.com/biz/mo-ran-gak-restaurant-garden-grove" target="_blank">Yelp &rarr;</a>
-            <a href="https://www.google.com/maps/dir/2722+Strawberry+Lane,+Santa+Ana,+CA/9651+Garden+Grove+Blvd,+Garden+Grove,+CA" target="_blank">From Homebase</a>
-            <a href="https://www.google.com/maps/dir/One+University+Drive,+Orange,+CA+92866/9651+Garden+Grove+Blvd,+Garden+Grove,+CA" target="_blank">From Chapman</a>
-          </div>
-        </div>
-
-        <div class="zone-divider">Downtown Santa Ana &mdash; Near Homebase</div>
-
-        <div class="resto">
-          <div class="resto-name">Benchmark</div>
-          <div class="resto-type">New American / Near Homebase</div>
-          <p>Market-driven, upscale casual. Beloved local. Easy night close to base.</p>
-          <div class="resto-links">
-            <a href="https://benchmarkoc.com/" target="_blank">Website &rarr;</a>
-            <a href="https://www.google.com/maps/dir/2722+Strawberry+Lane,+Santa+Ana,+CA/601+E+Santa+Ana+Blvd,+Santa+Ana,+CA" target="_blank">From Homebase</a>
-            <a href="https://www.google.com/maps/dir/One+University+Drive,+Orange,+CA+92866/601+E+Santa+Ana+Blvd,+Santa+Ana,+CA" target="_blank">From Chapman</a>
-          </div>
-        </div>
-
+      <div class="cuisine-grid">
+        <a class="cuisine-tag" href="https://www.google.com/maps/search/Korean+restaurants/@33.7879,-117.8531,14z" target="_blank">Korean</a>
+        <a class="cuisine-tag" href="https://www.google.com/maps/search/Thai+restaurants/@33.7879,-117.8531,14z" target="_blank">Thai</a>
+        <a class="cuisine-tag" href="https://www.google.com/maps/search/Japanese+sushi+restaurants/@33.7879,-117.8531,14z" target="_blank">Japanese / Sushi</a>
+        <a class="cuisine-tag" href="https://www.google.com/maps/search/Vietnamese+restaurants/@33.7879,-117.8531,14z" target="_blank">Vietnamese</a>
+        <a class="cuisine-tag" href="https://www.google.com/maps/search/Indian+restaurants/@33.7879,-117.8531,14z" target="_blank">Indian</a>
+        <a class="cuisine-tag" href="https://www.google.com/maps/search/Italian+restaurants/@33.7879,-117.8531,14z" target="_blank">Italian</a>
+        <a class="cuisine-tag" href="https://www.google.com/maps/search/Mexican+restaurants/@33.7879,-117.8531,14z" target="_blank">Mexican</a>
+        <a class="cuisine-tag" href="https://www.google.com/maps/search/Mediterranean+restaurants/@33.7879,-117.8531,14z" target="_blank">Mediterranean</a>
+        <a class="cuisine-tag" href="https://www.google.com/maps/search/Chinese+restaurants/@33.7879,-117.8531,14z" target="_blank">Chinese</a>
+        <a class="cuisine-tag" href="https://www.google.com/maps/search/Ramen+restaurants/@33.7879,-117.8531,14z" target="_blank">Ramen</a>
+        <a class="cuisine-tag" href="https://www.google.com/maps/search/vegetarian+vegan+restaurants/@33.7879,-117.8531,14z" target="_blank">Vegetarian / Vegan</a>
+        <a class="cuisine-tag" href="https://www.google.com/maps/search/seafood+restaurants/@33.7879,-117.8531,14z" target="_blank">Seafood</a>
+        <a class="cuisine-tag" href="https://www.google.com/maps/search/American+restaurants/@33.7879,-117.8531,14z" target="_blank">American</a>
+        <a class="cuisine-tag" href="https://www.google.com/maps/search/pizza+restaurants/@33.7879,-117.8531,14z" target="_blank">Pizza</a>
+        <a class="cuisine-tag" href="https://www.google.com/maps/search/Ethiopian+African+restaurants/@33.7879,-117.8531,14z" target="_blank">Ethiopian</a>
+        <a class="cuisine-tag" href="https://www.google.com/maps/search/bars+cocktails+Orange+CA/@33.7879,-117.8531,14z" target="_blank">Bars / Cocktails</a>
       </div>
     </section>
 
