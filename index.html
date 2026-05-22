@@ -339,6 +339,74 @@
     padding-bottom: 0.25rem;
   }
 
+  /* FLIGHTS */
+  .flight-day {
+    margin-bottom: 0.8rem;
+  }
+
+  .flight-day-label {
+    font-size: 0.6rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--accent);
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 0.2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .flight-legs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+  }
+
+  @media (max-width: 520px) { .flight-legs { grid-template-columns: 1fr; } }
+
+  .flight-leg {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 0.7rem 0.9rem;
+  }
+
+  .flight-num {
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 0.15rem;
+  }
+
+  .flight-route {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--accent);
+    letter-spacing: 0.04em;
+    margin-bottom: 0.2rem;
+  }
+
+  .flight-times {
+    font-size: 0.75rem;
+    color: var(--text);
+    margin-bottom: 0.15rem;
+  }
+
+  .flight-meta {
+    font-size: 0.68rem;
+    color: var(--muted);
+    line-height: 1.4;
+  }
+
+  .flight-meta a { font-size: 0.65rem; }
+
+  .layover-note {
+    font-size: 0.7rem;
+    color: var(--muted);
+    padding: 0.2rem 0.4rem;
+    background: var(--surface2);
+    border-left: 2px solid var(--border);
+    margin: 0.3rem 0;
+    grid-column: 1 / -1;
+  }
+
   /* PARKING */
   .park-grid {
     display: grid;
@@ -455,6 +523,56 @@
 
 <div class="container">
 
+  <!-- FLIGHTS -->
+  <section>
+    <div class="section-label">Travel</div>
+    <h2>Flights</h2>
+
+    <div class="flight-day">
+      <div class="flight-day-label">Friday May 22 &mdash; Outbound</div>
+      <div class="flight-legs">
+        <div class="flight-leg">
+          <div class="flight-num">UA 4168 &mdash; United Express / GoJet</div>
+          <div class="flight-route">ATW &rarr; ORD</div>
+          <div class="flight-times">Depart 12:24 PM &mdash; Arrive 1:46 PM</div>
+          <div class="flight-meta">Bombardier CRJ550 &middot; Seats 14A, 14B<br>
+            <a href="https://flightaware.com/live/flight/UAL4168" target="_blank">Track UA4168</a>
+          </div>
+        </div>
+        <div class="flight-leg">
+          <div class="flight-num">UA 1317 &mdash; United Airlines</div>
+          <div class="flight-route">ORD &rarr; SNA</div>
+          <div class="flight-times">Depart 4:20 PM &mdash; Arrive 6:52 PM</div>
+          <div class="flight-meta">Airbus A321neo &middot; Seats 36B, 36C &middot; Layover ORD: 2h 34m<br>
+            <a href="https://flightaware.com/live/flight/UAL1317" target="_blank">Track UA1317</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="flight-day">
+      <div class="flight-day-label">Sunday May 24 &mdash; Return</div>
+      <div class="flight-legs">
+        <div class="flight-leg">
+          <div class="flight-num">UA 2132 &mdash; United Airlines</div>
+          <div class="flight-route">SNA &rarr; DEN</div>
+          <div class="flight-times">Depart 1:08 PM &mdash; Arrive 4:30 PM</div>
+          <div class="flight-meta">Boeing 737 MAX 8 &middot; Seats 38B, 38C<br>
+            <a href="https://flightaware.com/live/flight/UAL2132" target="_blank">Track UA2132</a>
+          </div>
+        </div>
+        <div class="flight-leg">
+          <div class="flight-num">UA 1204 &mdash; United Airlines</div>
+          <div class="flight-route">DEN &rarr; ATW</div>
+          <div class="flight-times">Depart 5:40 PM &mdash; Arrive 9:04 PM</div>
+          <div class="flight-meta">Airbus A319 &middot; Seats 34B, 34C &middot; Layover DEN: 1h 10m<br>
+            <a href="https://flightaware.com/live/flight/UAL1204" target="_blank">Track UA1204</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- HOMEBASE -->
   <div class="homebase">
     <div>
@@ -463,11 +581,6 @@
       <div class="homebase-meta">4 mi to Chapman &nbsp;&middot;&nbsp; 10 min to SNA Airport via 55S &nbsp;&middot;&nbsp; 10 min to Old Towne Orange</div>
     </div>
     <a class="dir-btn" href="https://www.google.com/maps/search/2722+Strawberry+Lane,+Santa+Ana,+CA" target="_blank">Map It</a>
-  </div>
-
-  <!-- TONIGHT -->
-  <div class="alert">
-    <strong>Tonight (Fri) &mdash; 7:00 PM:</strong> All-university ceremony at Wilson Field. Keynote: the Duffer Brothers (Stranger Things, Chapman '07). Fireworks after. Gates open 5:30 PM. <strong>Leave homebase by 5:00.</strong>
   </div>
 
   <!-- TOMORROW: DODGE -->
