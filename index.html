@@ -273,70 +273,111 @@
 
   .map-key span { color: var(--text); }
 
-  /* RESTAURANTS */
-  .resto-list { display: flex; flex-direction: column; gap: 0.5rem; }
+  /* RESTAURANTS — 3-column grid */
+  .resto-grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+  }
+
+  @media (max-width: 640px) {
+    .resto-grid-3 { grid-template-columns: 1fr 1fr; }
+  }
+
+  @media (max-width: 420px) {
+    .resto-grid-3 { grid-template-columns: 1fr; }
+  }
 
   .resto {
     background: var(--surface);
     border: 1px solid var(--border);
-    padding: 0.8rem 1rem;
-    display: grid;
-    grid-template-columns: 1fr auto;
-    gap: 0.5rem 1rem;
-    align-items: start;
+    padding: 0.75rem 0.8rem;
   }
 
-  .resto-left {}
-
   .resto-name {
-    font-size: 0.92rem;
-    font-weight: 600;
+    font-size: 0.82rem;
+    font-weight: 700;
     color: #fff;
     margin-bottom: 0.1rem;
+    line-height: 1.2;
   }
 
   .resto-type {
-    font-size: 0.68rem;
-    letter-spacing: 0.08em;
+    font-size: 0.62rem;
+    letter-spacing: 0.06em;
     text-transform: uppercase;
-    color: var(--muted);
+    color: var(--accent);
     margin-bottom: 0.3rem;
   }
 
   .resto p {
-    font-size: 0.8rem;
-    color: #9a9690;
-    line-height: 1.4;
+    font-size: 0.75rem;
+    color: #888;
+    line-height: 1.35;
+    margin-bottom: 0.5rem;
   }
 
   .resto-links {
     display: flex;
     flex-direction: column;
-    gap: 0.3rem;
-    align-items: flex-end;
-    flex-shrink: 0;
+    gap: 0.2rem;
   }
 
   .resto-links a {
-    font-size: 0.65rem;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    white-space: nowrap;
+    font-size: 0.62rem;
+    letter-spacing: 0.04em;
     color: var(--link);
-    border: 1px solid var(--accent-dim);
-    padding: 0.2rem 0.5rem;
   }
-
-  .resto-links a:hover { background: var(--surface2); text-decoration: none; }
 
   .zone-label {
     font-size: 0.62rem;
     letter-spacing: 0.14em;
     text-transform: uppercase;
     color: var(--muted);
-    margin: 1rem 0 0.4rem;
+    margin: 1.2rem 0 0.5rem;
     border-bottom: 1px solid var(--border);
     padding-bottom: 0.25rem;
+  }
+
+  /* PARKING */
+  .park-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+    margin-bottom: 0.7rem;
+  }
+
+  @media (max-width: 600px) { .park-grid { grid-template-columns: 1fr; } }
+
+  .park-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 0.75rem 0.9rem;
+  }
+
+  .park-name {
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 0.15rem;
+  }
+
+  .park-addr {
+    font-size: 0.72rem;
+    color: var(--muted);
+    margin-bottom: 0.3rem;
+  }
+
+  .park-note {
+    font-size: 0.72rem;
+    color: #9a9690;
+    margin-bottom: 0.4rem;
+    line-height: 1.35;
+  }
+
+  .park-card a {
+    font-size: 0.65rem;
+    letter-spacing: 0.04em;
   }
 
   /* EVENTS */
@@ -445,10 +486,11 @@
         <li><span class="ck">Guests</span> Gates open approx. 7:00 PM. First-come seating within ticketed sections. Arrive by 6:45.</li>
         <li><span class="ck">Ends</span> Approx. 10:00 PM</li>
         <li><span class="ck">Drop-off</span> Lyft/Uber: McCardle Gate, E. Walnut Ave (north side). ADA: same, or Keck Center, 400 N Center St.</li>
-        <li><span class="ck">Parking</span> Free in flagged structures. Anderson Structure: up to 1 hr exit wait. Consider rideshare.</li>
+        <li><span class="ck">Parking</span> Free in all designated structures. See Parking section below for locations + Maps links. Anderson: 1 hr exit — plan accordingly for dinner reservations.</li>
         <li><span class="ck">No entry</span> Food, drinks, balloons, large bags, noisemakers, coolers, signs</li>
         <li><span class="ck">Attire</span> Dressy casual. Bring a layer — evening on an open field.</li>
         <li><span class="ck">Directions</span> <a href="https://www.google.com/maps/dir/2722+Strawberry+Lane,+Santa+Ana,+CA/One+University+Drive,+Orange,+CA+92866" target="_blank">Homebase &rarr; Chapman</a></li>
+        <li><span class="ck">Weather Sat PM</span> <a href="https://forecast.weather.gov/MapClick.php?lat=33.7879&lon=-117.8531&unit=0&lg=english&FcstType=graphical" target="_blank">NWS Hourly Forecast — Wilson Field</a> &nbsp;&middot;&nbsp; <a href="https://www.wunderground.com/hourly/us/ca/orange/33.7879,-117.8531/date/2026-05-23" target="_blank">Weather Underground</a></li>
       </ul>
     </div>
   </section>
@@ -473,84 +515,99 @@
     </p>
   </section>
 
+  <!-- PARKING -->
+  <section>
+    <div class="section-label">Parking</div>
+    <h2>Saturday Night — Where to Park</h2>
+
+    <div class="park-grid">
+      <div class="park-card">
+        <div class="park-name">Barrera Structure</div>
+        <div class="park-addr">200 W Sycamore Ave (at Lemon St)<br>Behind Fowler School of Law</div>
+        <div class="park-note">Free during commencement. Exit wait: up to 30 min after ceremony.</div>
+        <a href="https://www.google.com/maps/dir/2722+Strawberry+Lane,+Santa+Ana,+CA/200+W+Sycamore+Ave,+Orange,+CA+92866" target="_blank">Directions from Homebase</a>
+      </div>
+      <div class="park-card">
+        <div class="park-name">Anderson Structure</div>
+        <div class="park-addr">300 E Walnut Ave<br>Underground, north edge of campus</div>
+        <div class="park-note">Free during commencement. Exit wait: up to 1 hr after ceremony. Factor into dinner reservations.</div>
+        <a href="https://www.google.com/maps/dir/2722+Strawberry+Lane,+Santa+Ana,+CA/300+E+Walnut+Ave,+Orange,+CA+92866" target="_blank">Directions from Homebase</a>
+      </div>
+      <div class="park-card">
+        <div class="park-name">Street Parking</div>
+        <div class="park-addr">Glassell, Palm, Sycamore, Center St<br>Residential blocks around campus</div>
+        <div class="park-note">Permit restrictions waived during Commencement Weekend. Best option to avoid structure exit delays — walk to Wilson Field.</div>
+        <a href="https://www.google.com/maps/search/parking+near+Chapman+University,+Orange,+CA" target="_blank">View area on Maps</a>
+      </div>
+    </div>
+    <p style="font-size:0.72rem; color:var(--muted);">No parking at One University Drive. Rideshare drop-off: McCardle Gate, E. Walnut Ave (north side of campus).</p>
+  </section>
+
   <!-- DINING -->
   <section>
     <div class="section-label">Eat</div>
     <h2>Restaurants</h2>
 
-    <div class="zone-label">Old Towne Orange &mdash; Near Chapman (10 min from homebase)</div>
-    <div class="resto-list">
-
+    <div class="zone-label">Old Towne Orange &mdash; Steps from Chapman</div>
+    <div class="resto-grid-3">
       <div class="resto">
-        <div class="resto-left">
-          <div class="resto-name">O SEA</div>
-          <div class="resto-type">Seafood &mdash; Special Occasion &mdash; 109 S Glassell St, Orange</div>
-          <p>Best Seafood in OC (LA Times). Progressive seafood, historic plaza district, steps from campus. Book ahead — fills on graduation weekend.</p>
-        </div>
+        <div class="resto-name">O SEA</div>
+        <div class="resto-type">Seafood / Special Occasion</div>
+        <p>Best Seafood OC (LA Times). Progressive, steps from campus. Book ahead.</p>
         <div class="resto-links">
-          <a href="https://www.eatosea.com/" target="_blank">Website</a>
+          <a href="https://www.eatosea.com/" target="_blank">Website &rarr;</a>
           <a href="https://www.google.com/maps/dir/2722+Strawberry+Lane,+Santa+Ana,+CA/109+S+Glassell+St,+Orange,+CA" target="_blank">From Homebase</a>
           <a href="https://www.google.com/maps/dir/One+University+Drive,+Orange,+CA+92866/109+S+Glassell+St,+Orange,+CA" target="_blank">From Chapman</a>
         </div>
       </div>
-
       <div class="resto">
-        <div class="resto-left">
-          <div class="resto-name">HAVEN Craft Kitchen + Bar</div>
-          <div class="resto-type">American &mdash; Group-Friendly &mdash; 190 S Glassell St, Orange</div>
-          <p>Anchor of Old Towne's dining scene for 17 years. Serious craft beer and bourbon list. Good atmosphere without formality.</p>
-        </div>
+        <div class="resto-name">HAVEN Craft Kitchen</div>
+        <div class="resto-type">American / Group-Friendly</div>
+        <p>17-year anchor of Old Towne. Serious bourbon + craft beer list. Good vibe.</p>
         <div class="resto-links">
-          <a href="https://www.havencraftkitchen.com/" target="_blank">Website</a>
+          <a href="https://www.havencraftkitchen.com/" target="_blank">Website &rarr;</a>
           <a href="https://www.google.com/maps/dir/2722+Strawberry+Lane,+Santa+Ana,+CA/190+S+Glassell+St,+Orange,+CA" target="_blank">From Homebase</a>
           <a href="https://www.google.com/maps/dir/One+University+Drive,+Orange,+CA+92866/190+S+Glassell+St,+Orange,+CA" target="_blank">From Chapman</a>
         </div>
       </div>
-
       <div class="resto">
-        <div class="resto-left">
-          <div class="resto-name">Orange Hill Restaurant</div>
-          <div class="resto-type">Steakhouse &mdash; Splurge &mdash; Views of Catalina &amp; OC Coast</div>
-          <p>USDA Prime steaks, sweeping hilltop views. Miso Chilean seabass is the signature non-steak. The celebration option if the group wants to mark the occasion properly.</p>
-        </div>
+        <div class="resto-name">King's Fish House</div>
+        <div class="resto-type">Seafood / Casual Upscale</div>
+        <p>Live oysters, seasonal catches, shellfish. Stadium Promenade. Good for mixed groups.</p>
         <div class="resto-links">
-          <a href="https://www.theorangehillrestaurant.com/" target="_blank">Website</a>
-          <a href="https://www.google.com/maps/dir/2722+Strawberry+Lane,+Santa+Ana,+CA/Orange+Hill+Restaurant,+Orange,+CA" target="_blank">From Homebase</a>
-          <a href="https://www.google.com/maps/dir/One+University+Drive,+Orange,+CA+92866/Orange+Hill+Restaurant,+Orange,+CA" target="_blank">From Chapman</a>
-        </div>
-      </div>
-
-      <div class="resto">
-        <div class="resto-left">
-          <div class="resto-name">King's Fish House</div>
-          <div class="resto-type">Seafood &mdash; Casual Upscale &mdash; Stadium Promenade, Orange</div>
-          <p>Live oysters, seasonal fish, shellfish. Established 1998. Good for a group with mixed tastes — non-seafood menu is solid too.</p>
-        </div>
-        <div class="resto-links">
-          <a href="https://www.kingsfishhouse.com/orange" target="_blank">Website</a>
+          <a href="https://www.kingsfishhouse.com/orange" target="_blank">Website &rarr;</a>
           <a href="https://www.google.com/maps/dir/2722+Strawberry+Lane,+Santa+Ana,+CA/King%27s+Fish+House,+Orange,+CA" target="_blank">From Homebase</a>
           <a href="https://www.google.com/maps/dir/One+University+Drive,+Orange,+CA+92866/King%27s+Fish+House,+Orange,+CA" target="_blank">From Chapman</a>
         </div>
       </div>
+    </div>
 
+    <div class="zone-label">Orange Hills &mdash; 10 min from Chapman</div>
+    <div class="resto-grid-3">
+      <div class="resto">
+        <div class="resto-name">Orange Hill</div>
+        <div class="resto-type">Steakhouse / Splurge</div>
+        <p>Hilltop views of Catalina + OC coast. USDA Prime steaks. The celebration option.</p>
+        <div class="resto-links">
+          <a href="https://www.theorangehillrestaurant.com/" target="_blank">Website &rarr;</a>
+          <a href="https://www.google.com/maps/dir/2722+Strawberry+Lane,+Santa+Ana,+CA/Orange+Hill+Restaurant,+Orange,+CA" target="_blank">From Homebase</a>
+          <a href="https://www.google.com/maps/dir/One+University+Drive,+Orange,+CA+92866/Orange+Hill+Restaurant,+Orange,+CA" target="_blank">From Chapman</a>
+        </div>
+      </div>
     </div>
 
     <div class="zone-label">Downtown Santa Ana &mdash; Near Homebase</div>
-    <div class="resto-list">
-
+    <div class="resto-grid-3">
       <div class="resto">
-        <div class="resto-left">
-          <div class="resto-name">Benchmark</div>
-          <div class="resto-type">New American &mdash; Neighborhood &mdash; 601 E Santa Ana Blvd, Santa Ana</div>
-          <p>Market-driven, upscale casual. Beloved local. Good for a relaxed night close to base.</p>
-        </div>
+        <div class="resto-name">Benchmark</div>
+        <div class="resto-type">New American / Neighborhood</div>
+        <p>Market-driven, upscale casual. Beloved local. Easy night close to base.</p>
         <div class="resto-links">
-          <a href="https://benchmarkoc.com/" target="_blank">Website</a>
+          <a href="https://benchmarkoc.com/" target="_blank">Website &rarr;</a>
           <a href="https://www.google.com/maps/dir/2722+Strawberry+Lane,+Santa+Ana,+CA/601+E+Santa+Ana+Blvd,+Santa+Ana,+CA" target="_blank">From Homebase</a>
           <a href="https://www.google.com/maps/dir/One+University+Drive,+Orange,+CA+92866/601+E+Santa+Ana+Blvd,+Santa+Ana,+CA" target="_blank">From Chapman</a>
         </div>
       </div>
-
     </div>
   </section>
 
